@@ -1,0 +1,16 @@
+# Block Structure 
+
+
+1. Block Structure
+Binary Format:
+Magic Number (4 bytes): Identifier for the network (e.g., 0xD9B4BEF9 for Bitcoin mainnet).
+Block Size (4 bytes): Size of the block in bytes, excluding the magic number.
+Block Header:
+Version (4 bytes): Block version number.
+Previous Block Hash (32 bytes): SHA-256 hash of the previous block’s header.
+Merkle Root (32 bytes): SHA-256 hash of the Merkle root of the transactions in the block.
+Timestamp (4 bytes): Time when the block was created (Unix epoch time).
+Difficulty Target (4 bytes): Target difficulty of the block (encoded in compact form).
+Nonce (4 bytes): A nonce used for proof-of-work.
+Transaction Count (VarInt): Number of transactions in the block.
+Transactions (Variable): List of transactions in the block.

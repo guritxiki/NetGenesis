@@ -1,0 +1,88 @@
+# Transaction Types  types.txt
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------
+1. Native Coin Transaction
+Binary Structure:
+
+
+
+Version (4 bytes)
+Input Count (1 byte)
+Inputs:
+TXID (32 bytes) // Hash of the transaction
+Output Index (4 bytes) // Index of the output in the previously mentioned transaction
+ScriptSig Length (1 byte)
+ScriptSig (variable)
+Output Count (1 byte)
+Outputs:
+Value (8 bytes)
+ScriptPubKey Length (1 byte)
+ScriptPubKey (variable)
+Lock Time (4 bytes)
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+2. Domain Transfer Transaction (UTXD Model)
+Binary Structure:
+
+
+
+Version (4 bytes)
+Input Count (1 byte)
+Inputs:
+TXID (32 bytes) // Hash of the transaction
+Output Index (4 bytes) // Index of the output in the previously mentioned transaction
+ScriptSig Length (1 byte)
+ScriptSig (variable)
+Output Count (1 byte)
+Outputs:
+Value (8 bytes)
+ScriptPubKey Length (1 byte)
+ScriptPubKey (variable)
+Lock Time (4 bytes)
+Domain Input Count (1 byte)
+Domain Inputs:
+Domain TXID (32 bytes) // Hash of the domain transaction
+Output Index (4 bytes) // Index of the domain output in the referenced transaction
+ScriptSig Length (1 byte)
+ScriptSig (variable)
+Domain Output Count (1 byte)
+Domain Outputs:
+New Owner Public Key Hash (20 bytes) // Public key hash of the new domain owner
+
+--------------------------------------------------------------------------------------------------------------------------------------
+3. IP Change Transaction
+Binary Structure:
+
+
+
+Version (4 bytes)
+Input Count (1 byte)
+Inputs:
+TXID (32 bytes) // Hash of the transaction
+Output Index (4 bytes) // Index of the output in the previously mentioned transaction
+ScriptSig Length (1 byte)
+ScriptSig (variable)
+Output Count (1 byte)
+Outputs:
+Value (8 bytes) // For transaction fees
+ScriptPubKey Length (1 byte)
+ScriptPubKey (variable)
+Domain Input Count (1 byte)
+Domain Inputs:
+Domain TXID (32 bytes) // Hash of the domain transaction
+ScriptSig Length (1 byte)
+ScriptSig (variable)
+Output Count (1 byte)
+Outputs:
+New IP Address:
+IP Version Flag (1 bit) // Indicates IPv4 (0) or IPv6 (1)
+IPv4 Address (4 bytes) [if IPv4]
+IPv6 Address (16 bytes) [if IPv6]
+Lock Time (4 bytes)
+
+
+
