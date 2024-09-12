@@ -74,7 +74,7 @@ class Script:
             script_pub_key = b''
 
         return Script(script_sig, script_pub_key)
-    def create_p2pkh_scriptpubkey(pubkey_hash):
+    def createP2PKH_ScriptPubKey(pubkey_hash):
         """
         Creates a binary ScriptPubKey for a P2PKH output.
 
@@ -96,4 +96,29 @@ class Script:
                         pubkey_hash + op_equalverify + op_checksig)
         
         return scriptpubkey
+    def createP2PKH_ScriptSig(signature: bytes, public_key: VerifyingKey) -> bytes:
+        """
+        Creates a binary ScriptSig for a P2PKH input.
+
+        :param signature: The ECDSA signature (as bytes)
+        :param public_key: The public key (as VerifyingKey object)
+        :return: Binary ScriptSig
+        """
+        # Ensure public_key is a VerifyingKey object
+        if not isinstance(public_key, VerifyingKey):
+            raise TypeError("public_key must be a VerifyingKey object")
+
+        # Convert VerifyingKey to bytes
+        public_key_bytes = public_key.to_string()
+
+        # ScriptSig format
+        # Signature length
+        sig_len = len(signature)
+        # Public key length
+        pub_key_len = len(public_key_bytes)
+        
+        script_sig = struct.pack('B', sig_len) + signature + struct.pack('B', pub_key_len) + public_key_bytes
+        
+        return script_sig
+
 
