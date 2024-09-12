@@ -127,5 +127,4 @@ class Block:
         )
         
         return genesis_block
-
-    
+   
