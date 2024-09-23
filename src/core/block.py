@@ -121,7 +121,7 @@ class Block:
             previous_hash=previous_hash,
             merkle_root=merkle_root,
             timestamp=timestamp,
-            difficulty=difficulty,  # Changed from bits to difficulty
+            difficulty=difficulty,  
             nonce=nonce,
             transactions=[coinbase_tx]
         )

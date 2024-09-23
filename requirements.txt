@@ -1,1 +1,6 @@
- 
+jsonlib-python3==1.6.1
+structlog==23.1.0
+ipaddress==1.0.23
+ecdsa==0.18.0
+base58==2.1.1
+pyrocksdb==0.9.1  
